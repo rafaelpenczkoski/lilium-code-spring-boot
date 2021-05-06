@@ -1,9 +1,9 @@
 package com.lilium.springangular.api;
 
 import com.lilium.springangular.dto.BaseDTO;
+import com.lilium.springangular.dto.search.PagedResponse;
+import com.lilium.springangular.dto.search.SearchRequest;
 import com.lilium.springangular.entity.DistributedEntity;
-
-import java.util.List;
 
 public interface AbstractCRUDLApi<ENTITY extends DistributedEntity, DTO extends BaseDTO> {
 
@@ -11,7 +11,7 @@ public interface AbstractCRUDLApi<ENTITY extends DistributedEntity, DTO extends 
 
     DTO getById(Integer id);
 
-    List<DTO> list();
+    PagedResponse<DTO> list(SearchRequest request);
 
     Boolean delete(Integer id);
 

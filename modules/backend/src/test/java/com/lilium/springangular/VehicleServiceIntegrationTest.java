@@ -1,6 +1,8 @@
 package com.lilium.springangular;
 
 import com.lilium.springangular.dto.VehicleDTO;
+import com.lilium.springangular.dto.search.PagedResponse;
+import com.lilium.springangular.dto.search.SearchRequest;
 import com.lilium.springangular.service.VehicleService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -40,7 +42,9 @@ public class VehicleServiceIntegrationTest {
                         savedVehicle.getNumber()
                 );
 
-        final List<VehicleDTO> vehicles = service.list();
+        SearchRequest searchRequest = new SearchRequest();
+        PagedResponse<VehicleDTO> pagedResponse = service.list(searchRequest);
+        final List<VehicleDTO> vehicles = pagedResponse.getContent();
         Assertions.assertThat(vehicles).isNotNull();
         Assertions.assertThat(vehicles).hasSize(1);
 
