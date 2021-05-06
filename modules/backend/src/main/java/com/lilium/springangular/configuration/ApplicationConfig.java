@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-@EnableJpaRepositories(repositoryBaseClass = DistributedRepositoryImpl.class)
+@EnableJpaRepositories("com.lilium.springangular.repository")
 public class ApplicationConfig implements WebMvcConfigurer {
 
     @Override
